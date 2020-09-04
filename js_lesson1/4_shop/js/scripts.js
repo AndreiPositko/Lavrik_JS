@@ -14,11 +14,10 @@ window.onload = function(e){
         var price = 0;
         
         for(var i = 0; i < items.length; i++){
-            if(items[i].classList.contains('item-active')){
-                price += parseInt(items[i].getAttribute('data-price'));
+            if (items[i].classList.contains('item-active')){
+                price += parseInt(items[i].dataset.price);
             }
         }
-        
         divPrice.innerHTML = price;
     }
 }
