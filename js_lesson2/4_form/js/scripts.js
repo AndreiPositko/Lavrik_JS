@@ -1,26 +1,36 @@
-window.onload = function(e){
-    
-    var links = document.querySelectorAll('a[target=_blank]');
-    
-    for(var i = 0; i < links.length; i++){
-        links[i].onclick = confimAway;
-    }
-    
-    function confimAway(e){
-        if(!confirm('Мы не гарантируем, что Вы переходите на какой-то сайт. Перейти?')){
-            return false;
-        }
-    }
-    
-    var images = document.querySelectorAll('.gallery img');
-    
-    for(var i = 0; i < images.length; i++){
-        images[i].onmousedown = stopMove;
-        images[i].oncontextmenu = stopMove;
-    }
-    
-    function stopMove(e){
-        return false;
-    }
-}
+window.onload = function (e) {
 
+    let form = document.querySelector('form');
+    let submitButton = document.querySelector('input[type=submit]');
+    let inputs = document.querySelectorAll('input[type=text]');
+
+    form.onsubmit = function(e) {
+        let error = false;
+
+       for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value == '') {
+                inputs[i].classList.add('error');
+                error = true;
+           } else {
+            inputs[i].classList.remove('error');
+           }
+
+           if (error) {
+               e.preventDefault();
+           }
+       } 
+    };
+    
+    // form.onsubmit = function(e) {
+    //    for (let i = 0; i < inputs.length; i++) {
+    //        if (inputs[i].value == '') {
+    //            inputs[i].classList.add('error');
+    //            e.preventDefault();
+    //        } else {
+    //         inputs[i].classList.remove('error');
+    //        }
+    //    } 
+    // };
+
+
+}
