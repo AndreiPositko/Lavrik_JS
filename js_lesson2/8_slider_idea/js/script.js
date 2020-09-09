@@ -1,47 +1,69 @@
 window.onload = function () {
     
-   let slider1 = new Slider({
+    let slider1 = new Slider({
         images: '.gallery-1 .photos img',
         btnPrev: '.gallery-1 .buttons .prev',
         btnNext: '.gallery-1 .buttons .next',
         auto: false
-   });
-   
+    });
+    
+    let slider2 = new Slider({
+        images: '.gallery-2 .photos img',
+        btnPrev: '.gallery-2 .buttons .prev',
+        btnNext: '.gallery-2 .buttons .next',
+        auto: true,
+        rate: 300
+    });
+    
     function Slider(obj) {
-       this.images = document.querySelector(obj.images);
-       this.btnPrev = obj.btnPrev;
-       this.btnNext = obj.btnNext;
-       this.auto = obj.auto;
-       let i = 0;
-       let slider = this;
 
-       slider.prev = function() {
-           slider.images[i].classList.remove('showed');
-           i--;
+        this.images = document.querySelectorAll(obj.images);
+        // this.btnPrev = obj.btnPrev;
+        // this.btnNext = obj.btnNext;
 
-           if (i < 0) {
-               i = slider.images.length - 1;
-           }
+        this.btnPrev = document.querySelector(obj.btnPrev);
+        this.btnNext = document.querySelector(obj.btnNext);
+        this.auto = obj.auto;
+        this.rate = obj.rate || 1000;
+        console.log(this.rate);
 
-           slider.images[i].classList.add('showed');
-       };
+        let slider = this;
+        console.log(slider.btnPrev);
 
-       slider.next = function() {
-           slider.images[i].classList.remove('showed');
-           i++;
+        let i = 0;
 
-           if (i >= images.length) {
-               i = 0;
-           }
+        this.prev = function() {
+            slider.images[i].classList.remove('showed');
+            i--;
 
-           slider.images[i].classList.add('showed');
-       };
+            if (i < 0) {
+                i = slider.images.length - 1;
+            }
+            slider.images[i].classList.add('showed');
+        };
 
-       document.querySelector(slider.btnPrev).onclick = slider.prev;
-       document.querySelector(slider.btnNext).onclick = slider.next;
+        console.log(slider);
 
-       if (slider.auto) {
-           setInterval(slider.next, 1000);
-       }
-   }
+        this.next = function() {
+            slider.images[i].classList.remove('showed');
+            i++;
+
+            if (i >= slider.images.length) {
+                i = 0;
+            }
+            slider.images[i].classList.add('showed');
+        };
+
+        slider.btnPrev.onclick = function() {
+            slider.prev();
+        };
+        
+        slider.btnNext.onclick = function() {
+            slider.next();
+        };
+
+        if (slider.auto) {
+            setInterval(slider.prev, slider.rate);
+        }
+    }
 };
