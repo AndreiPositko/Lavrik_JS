@@ -11,5 +11,5 @@ html, body{
 }
 
 .focus{
-    box-shadow: 0 0 5px #ff0;
+    box-shadow: 5px -5px 10px 2px rgb(167, 44, 204);
 }
