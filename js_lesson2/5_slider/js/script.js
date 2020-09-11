@@ -15,7 +15,7 @@ window.onload = function(){
          }
          
          images[i].classList.add('showed');
-    }
+    };
 
     btn_next.onclick = function(){
          images[i].classList.remove('showed');
@@ -26,6 +26,6 @@ window.onload = function(){
          }
          
          images[i].classList.add('showed');
-    }
+    };
 
-}
+};

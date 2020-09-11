@@ -19,7 +19,7 @@ window.onload = function (e) {
     cat3.run();
     cat3.run();
     console.log(cat3);
-}
+};
 
 function Cat(name){
     this.name = name;
