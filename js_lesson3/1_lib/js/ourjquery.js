@@ -1,6 +1,14 @@
 function $(selector) {
-    let elements = document.querySelectorAll(selector);
-    return new OurJquery(elements);
+    let elements;
+
+    if (selector instanceof HTMLElement) {
+        elements = [selector];
+    } else {
+        elements = document.querySelectorAll(selector);
+    }
+        return new OurJquery(elements);
+
+    
 }
 
 function OurJquery(elements) {

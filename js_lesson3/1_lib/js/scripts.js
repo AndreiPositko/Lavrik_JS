@@ -60,18 +60,14 @@ window.onload = function(e){
     }).on('onblur', function() {
         this.classList.remove('focus');
     });
-
     
-
     jqInputs.addClass('some').addClass('some1').addClass('some2');
 
     $('.items .item').html('1').addClass('nz').on('click', function() {
+        $(this).html('12345');
+        console.log(this);
         this.style.color = 'red';
     });
-
-
-
-    
    
     /* 
      *  $('.items .item').fade(300); 
