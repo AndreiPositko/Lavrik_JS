@@ -1,6 +1,22 @@
-let input = document.getElementById('input');
-let result = document.querySelector('.result');
+let parent = document.querySelector('.table');
+let selectedItem;
 
-input.oninput = function() {
-    result.innerHTML = input.value;
+console.log(parent);
+
+parent.onclick = function(event) {
+    let target = event.target;
+    console.log(target);
+
+    colorized(target);
+   
+};
+
+function colorized (item) {
+    
+    if (selectedItem) {
+        selectedItem.classList.remove('colorBg');
+    }
+    selectedItem = item;
+    selectedItem.classList.add('colorBg');
 }
+

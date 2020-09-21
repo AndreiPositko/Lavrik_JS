@@ -1,0 +1,13 @@
+.table {
+    display: flex;
+  }
+  
+.table__item {
+    width: 130px;
+    height: 130px;
+    border: 1px solid black;
+  }
+
+.colorBg {
+      background-color: red;
+  } 
