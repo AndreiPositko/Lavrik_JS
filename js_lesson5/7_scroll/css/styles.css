@@ -1,0 +1,44 @@
+html, body{
+    margin: 0;
+    background: #eee;
+}
+
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    color: #fff;
+    height: 50px;
+    width: 100%;
+}
+
+.menu a{
+    color: inherit;
+    line-height: 50px;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: color 0.4s;
+}
+
+.menu a.active{
+    color: #ff0;
+}
+
+.content{
+    margin-top: 70px;
+}
+
+.up {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: red;
+    border: 2px solid rgb(155, 155, 236);
+    border-radius: 10px;
+    padding: 20px 30px;
+    background-color: rgba(201, 231, 93, 0.5);
+    outline: 0;
+    cursor: pointer;
+    display: none;
+}
